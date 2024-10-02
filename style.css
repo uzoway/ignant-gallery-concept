@@ -27,11 +27,6 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
-a {
-  text-decoration: none;
-  color: var(--black);
-}
-
 li {
   list-style: none;
   display: inline-flex;
@@ -41,6 +36,8 @@ p,
 span,
 a,
 button {
+  text-decoration: none;
+  color: var(--black);
   line-height: 0.9cap;
   font-size: clamp(0.75rem, 1rem + 0.25vw, 0.85rem);
   font-weight: 600;
@@ -84,11 +81,75 @@ ul {
 }
 
 /* Page styling */
+/* Nav */
+.c-nav {
+  width: 100%;
+  padding-inline: var(--gutter-width);
+}
+
+.c-nav .c-nav_container {
+  /* max-width: var(--container-max-width); */
+  padding-block: var(--gutter-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.left-nav_container {
+  display: flex;
+  gap: 2rem;
+}
+
+.left-nav_container .left-nav_link,
+.c-nav_container .nav-menu_btn {
+  text-transform: uppercase;
+  font-size: .8rem;
+  position: relative;
+  font-weight: 600;
+}
+
+.left-nav_container .left-nav_link::before,
+.c-nav_container .nav-menu_btn::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  background-color: var(--black);
+  height: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--nav-line);
+}
+
+.left-nav_container .left-nav_link:hover::before,
+.c-nav_container .nav-menu_btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: right;
+}
+
+.c-nav_container .middle-nav_item {
+  font-size: 1.15rem;
+  font-style: italic;
+}
+
 
 
 /* Responsive design */
 @media (max-width: 750px) {
   :root {
     --column: 6;
+  }
+}
+
+@media (max-width: 480px) {
+  .c-nav .c-nav_container {
+    align-items: start;
+  }
+
+  .left-nav_container {
+    flex-direction: column;
+    gap: 1rem;
   }
 }
