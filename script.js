@@ -1,9 +1,31 @@
 "use strict";
 
-gsap.registerPlugin(CustomEase);
-CustomEase.create("ease-out-cubic", "0.215,0.61,0.355,1");
+gsap.registerPlugin(ScrollTrigger);
 
-function initializeAnimation() {}
+const initializeAnimation = () => {
+  // Page load animation
+  gsap.to(".project-item", {
+    opacity: 1,
+    delay: 1,
+    stagger: {
+      amount: 0.7,
+      from: "random",
+    },
+  });
+
+  // Scroll all project items into position
+  gsap.to(".project-item", {
+    y: 0,
+    ease: "power3.inOut",
+    stagger: 0.003,
+    scrollTrigger: {
+      trigger: "[data-scroll-trigger]",
+      start: "top top",
+      scrub: 1,
+      pin: true,
+    },
+  });
+};
 
 window.addEventListener("DOMContentLoaded", initializeAnimation);
 
