@@ -164,44 +164,69 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10rem;
+  padding-bottom: 5rem;
 }
 
 .project-items_row .project-item {
   grid-column: span 1 / span 1;
   aspect-ratio: 1/1.25;
   background-color: grey;
+  opacity: 0;
+  overflow: hidden;
 }
 
-.project-items_row:nth-child(1) .project-item:nth-child(2n+7) {
-  transform: translateY(100%);
+.project-item_image {
+  transition: filter .75s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.project-items_row:nth-child(1) .project-item:nth-child(4n+2) {
-  transform: translateY(300%);
+.c-hero_container:has(.project-item_image:hover) .project-item_image:not(:hover) {
+  filter: contrast(0.5) brightness(0);
 }
 
-.project-items_row:nth-child(1) .project-item:nth-child(2n+2) {
-  transform: translateY(600%);
+.project-items_row:nth-child(1) .project-item:nth-child(12),
+.project-items_row:nth-child(1) .project-item:nth-child(2) {
+  transform: translateY(740%);
 }
 
-.project-items_row:nth-child(2) .project-item:nth-child(4n+2) {
+.project-items_row:nth-child(1) .project-item:nth-child(4n+6) {
+  transform: translateY(740%);
+}
+
+.project-items_row:nth-child(1) .project-item:nth-child(3n+5) {
+  transform: translateY(540%);
+}
+
+.project-items_row:nth-child(1) .project-item:nth-child(8n+3) {
+  transform: translateY(320%);
+}
+
+.project-items_row:nth-child(2) .project-item:nth-child(7n+3) {
+  transform: translateY(215%);
+}
+
+.project-items_row:nth-child(2) .project-item:nth-child(3n+6) {
+  transform: translateY(315%);
+}
+
+
+.project-items_row:nth-child(2) .project-item:nth-child(5n+5) {
+  transform: translateY(-215%);
+}
+
+.project-items_row:nth-child(2) .project-item:nth-child(12n+2) {
+  transform: translateY(-105%);
+}
+
+.project-items_row:nth-child(3) .project-item:nth-child(5n+1) {
   transform: translateY(-100%);
 }
 
-.project-items_row:nth-child(2) .project-item:nth-child(4n+3) {
-  transform: translateY(100%);
+.project-items_row:nth-child(3) .project-item:nth-child(5n+3) {
+  transform: translateY(150%);
 }
 
-.project-items_row:nth-child(2) .project-item:nth-child(4n+5) {
-  transform: translateY(300%);
-}
-
-.project-items_row:nth-child(3) .project-item:nth-child(4n+5) {
-  transform: translateY(200%);
-}
-
-.project-items_row:nth-child(3) .project-item:nth-child(3n+1) {
-  transform: translateY(300%);
+.project-items_row:nth-child(3) .project-item:nth-child(4n+4) {
+  transform: translateY(-320%);
 }
 
 /* Responsive design */
