@@ -13,3 +13,13 @@ document.addEventListener("keydown", (event) => {
     document.querySelector(".overlay").classList.toggle("active");
   }
 });
+
+// Lenis smooth scroll
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
