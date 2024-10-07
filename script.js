@@ -2,6 +2,23 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Toggle the grid visualizer
+document.addEventListener("keydown", (event) => {
+  if (event.shiftKey && event.key.toLowerCase() === "g") {
+    document.querySelector(".overlay").classList.toggle("active");
+  }
+});
+
+// Lenis smooth scroll
+const lenis = new Lenis();
+
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+
+requestAnimationFrame(raf);
+
 const initializeAnimation = () => {
   // Page load animation
   gsap.to(".project-item", {
@@ -28,20 +45,3 @@ const initializeAnimation = () => {
 };
 
 window.addEventListener("DOMContentLoaded", initializeAnimation);
-
-// Uncomment to be able to toggle the grid visualizer
-document.addEventListener("keydown", (event) => {
-  if (event.shiftKey && event.key.toLowerCase() === "g") {
-    document.querySelector(".overlay").classList.toggle("active");
-  }
-});
-
-// Lenis smooth scroll
-const lenis = new Lenis();
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
