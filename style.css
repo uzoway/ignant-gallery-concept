@@ -234,6 +234,21 @@ img {
   :root {
     --column: 6;
   }
+
+  .project-items_row:nth-child(3) .project-item,
+  .project-items_row:nth-child(2) .project-item,
+  .project-items_row:nth-child(1) .project-item {
+    transform: translateY(0) !important;
+  }
+
+  .uc-col-12 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .c-hero_container {
+    gap: var(--gutter-width);
+    padding-bottom: 0;
+  }
 }
 
 @media (max-width: 480px) {
