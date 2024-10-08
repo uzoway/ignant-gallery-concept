@@ -20,27 +20,44 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 const initializeAnimation = () => {
-  // Page load animation
-  gsap.to(".project-item", {
-    opacity: 1,
-    delay: 1,
-    stagger: {
-      amount: 0.7,
-      from: "random",
-    },
-  });
+  let mm = gsap.matchMedia(),
+    breakPoint = 750;
 
-  // Scroll all project items into position
-  gsap.to(".project-item", {
-    y: 0,
-    ease: "power3.inOut",
-    stagger: 0.003,
-    scrollTrigger: {
-      trigger: "[data-scroll-trigger]",
-      start: "top top",
-      scrub: 1,
-      pin: true,
+  mm.add(
+    {
+      isDesktop: `(min-width: ${breakPoint}px)`,
+      isMobile: `(max-width: ${breakPoint - 1}px)`,
+      reduceMotion: "(prefers-reduced-motion: reduce)",
     },
+    (context) => {
+      let { isDesktop, isMobile, reduceMotion } = context.conditions;
+
+      // Page load animation
+      gsap.to(".project-item", {
+        opacity: 1,
+        delay: 1,
+        duration: reduceMotion ? 0 : 0.5,
+        stagger: {
+          amount: reduceMotion ? 0 : 0.7,
+          from: isDesktop ? "random" : "start",
+        },
+      });
+    }
+  );
+
+  mm.add(`(min-width: ${breakPoint}px)`, () => {
+    // Scroll all project items into position on desktop
+    gsap.to(".project-item", {
+      y: 0,
+      ease: "power3.inOut",
+      stagger: 0.003,
+      scrollTrigger: {
+        trigger: "[data-scroll-trigger]",
+        start: "top top",
+        scrub: 1,
+        pin: true,
+      },
+    });
   });
 };
 
