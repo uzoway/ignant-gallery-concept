@@ -1,7 +1,7 @@
-<!-- # Jen Grisowold Personal Website
+# Gallery Grid Layout Exploration
 
-Development of a conceptual animation for the personal website of digital content creator Jen Griswold.
-Design & Motion by [Alex Tkachev](https://twitter.com/simply_aalex).
+Development of a conceptual animation for a Gallery page with a grid layout
+Design: [Ivan Gorbunov](https://dribbble.com/ivngbv).
 
 ## Table of contents
 
@@ -33,4 +33,4 @@ Feel free to review the code for a more detailed understanding of my approach, a
 
 ## Credit
 
-Huge credits goes to [Alex Tkachev](https://twitter.com/simply_aalex)🙌 who created the original design and motion which I have coded. -->
+Big shoutout to [Ivan Gorbunov](https://dribbble.com/ivngbv)🙌 who created the original design and motion which I have coded.
